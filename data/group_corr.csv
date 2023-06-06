@@ -1,0 +1,15 @@
+1,2,0
+'fish','1e2-1e4',71
+'fish','1e4-1e6',432
+'fish','1e6-1e8',11
+'fish','1e8-1e10',14
+'squid','1e2-1e4',1
+'squid','1e4-1e6',9
+'other','1e2-1e4',261
+'other','1e4-1e6',2172
+'other','1e6-1e8',150
+'other','1e8-1e10',13
+'unknown','1e2-1e4',1618
+'unknown','1e4-1e6',882
+'unknown','1e6-1e8',2
+'unknown','1e8-1e10',1

@@ -1,0 +1,143 @@
+{
+    "companys":[
+        {
+            "country": [
+                "Oceanus"
+            ],
+            "id": [
+                "Barco de Plata Logistics"
+            ],
+            "product_services": [
+                "Plastic products"
+            ],
+            "revenue_omu": [
+                "Unknown"
+            ],
+            "type": [
+                "Company"
+            ]
+        },
+        {
+            "country": [
+                "Zawalinda"
+            ],
+            "id": [
+                "Flint Ltd. Liability Co &"
+            ],
+            "product_services": [
+                "Commercial fishing"
+            ],
+            "revenue_omu": [
+                33526.7005
+            ],
+            "type": [
+                "Company"
+            ]
+        }
+    ],
+    "people":['Jessica Harmon', 'Elizabeth Moody', 'Sydney David',
+'David Anderson', 'Wayne Zhang', 'Ferrell Inc', 'Timothy Cruz', 'Raymond Pham',
+'Kimberly Jackson', 'Eric Price'],
+"links":[{
+    "source": [
+        "Barco de Plata Logistics"
+    ],
+    "target": [
+        "Jessica Harmon"
+    ],
+    "type": [
+        "Beneficial Owner"
+    ]
+},{
+    "source": [
+        "Barco de Plata Logistics"
+    ],
+    "target": [
+        "Elizabeth Moody"
+    ],
+    "type": [
+        "Beneficial Owner"
+    ]
+},{
+    "source": [
+        "Barco de Plata Logistics"
+    ],
+    "target": [
+        "Sydney David"
+    ],
+    "type": [
+        "Beneficial Owner"
+    ]
+},{
+    "source": [
+        "Flint Ltd. Liability Co &"
+    ],
+    "target": [
+        "David Anderson"
+    ],
+    "type": [
+        "Beneficial Owner"
+    ]
+},{
+    "source": [
+        "Barco de Plata Logistics"
+    ],
+    "target": [
+        "Wayne Zhang"
+    ],
+    "type": [
+        "Beneficial Owner"
+    ]
+},
+{
+    "source": [
+        "Flint Ltd. Liability Co &"
+    ],
+    "target": [
+        "Timothy Cruz"
+    ],
+    "type": [
+        "Beneficial Owner"
+    ]
+},{
+    "source": [
+        "Barco de Plata Logistics"
+    ],
+    "target": [
+        "Raymond Pham"
+    ],
+    "type": [
+        "Company Contacts"
+    ]
+},{
+    "source": [
+        "Flint Ltd. Liability Co &"
+    ],
+    "target": [
+        "Kimberly Jackson"
+    ],
+    "type": [
+        "Company Contacts"
+    ]
+},{
+    "source": [
+        "Barco de Plata Logistics"
+    ],
+    "target": [
+        "Kimberly Jackson"
+    ],
+    "type": [
+        "Beneficial Owner"
+    ]
+},{
+    "source": [
+        "Barco de Plata Logistics"
+    ],
+    "target": [
+        "Eric Price"
+    ],
+    "type": [
+        "Beneficial Owner"
+    ]
+}]
+}

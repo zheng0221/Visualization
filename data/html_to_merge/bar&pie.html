@@ -1,0 +1,261 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>#chart-panel {
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: 0;
+                bottom: 0;
+            }
+</style>
+
+
+<script src="https://lib.baomitu.com/echarts/5.2.1/echarts.min.js"></script>  <!-- 这里可能要换一下版本，如4.2.1 -->
+
+
+<script src=""></script>
+
+
+
+<script src="https://cdn.staticfile.org/jquery/3.3.1/jquery.min.js"></script>
+
+</head>
+<body>
+<div id="chart-panel" style="margin-top:30px"></div>
+<!-- <a>此处去除注释后可以添加标题</a> -->
+  
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('chart-panel'));
+ //主干开始
+ const builderJson = {
+  all: 24038,
+  all1:27622,
+  charts: {
+    'Company Contacts': 7034,
+    'Beneficial Owner': 11949,
+    'Companys': 8639
+    
+  },
+  components: {
+    'Company Contacts': 7244,
+    'Beneficial Owner': 16794
+    
+  },
+  ie: 9743
+};
+const downloadJson = {
+  'Company Contacts.js': 0.254652089,
+  'Beneficial Owner.js': 0.432589965,
+  'Companys.js': 0.312757947
+
+};
+const themeJson = {
+  'Company Contacts.js': 0.301356186,
+  'Beneficial Owner.js': 0.698643814
+};
+const waterMarkText = ' ';
+const canvas = document.createElement('canvas');
+const ctx = canvas.getContext('2d');
+canvas.width = canvas.height = 100;
+ctx.textAlign = 'center';
+ctx.textBaseline = 'middle';
+ctx.globalAlpha = 0.08;
+ctx.font = '20px Microsoft Yahei';
+ctx.translate(50, 50);
+ctx.rotate(-Math.PI / 4);
+ctx.fillText(waterMarkText, 0, 0);
+option = {
+  backgroundColor: {
+    type: 'pattern',
+    image: canvas,
+    repeat: 'repeat'
+  },
+  tooltip: {},
+  title: [
+    {
+      text: 'node-type',
+      subtext: '总计 ' + builderJson.all,
+      left: '25%',
+      textAlign: 'center'
+    },
+    {
+      text: 'line-type',
+      subtext: '总计 ' + builderJson.all1,
+      left: '25%',
+      top: '50%',
+      textAlign: 'center'
+    },
+    {
+      text: 'node-type',
+    //   subtext:
+    //     '总计 ' +
+    //     Object.keys(downloadJson).reduce(function (all, key) {
+    //       return all + downloadJson[key];
+    //     }, 0),
+      left: '75%',
+      textAlign: 'center'
+    },
+    {
+      text: 'line-type',
+    //   subtext:
+    //     '总计 ' +
+    //     Object.keys(themeJson).reduce(function (all, key) {
+    //       return all + themeJson[key];
+    //     }, 0),
+      left: '75%',
+      top: '50%',
+      textAlign: 'center'
+    }
+  ],
+  grid: [
+    {
+      top: 50,
+      width: '50%',
+      bottom: '55%',
+      left: 30,
+      containLabel: true
+    },
+    {
+      top: '55%',
+      width: '50%',
+      bottom: 40,
+      left: 30,
+      containLabel: true
+    }
+  ],
+  xAxis: [
+    {
+      type: 'value',
+      max: builderJson.all,
+      splitLine: {
+        show: false
+      },
+    //   name:'number'
+    },
+    {
+      type: 'value',
+      max: builderJson.all,
+      gridIndex: 1,
+      splitLine: {
+        show: false
+      },
+    //   name:'number'
+    }
+  ],
+  yAxis: [
+    {
+      type: 'category',
+      data: Object.keys(builderJson.charts),
+      axisLabel: {
+        interval: 0,
+        rotate: 30
+      },
+      splitLine: {
+        show: false
+      },
+      name:'type'
+    },
+    {
+      gridIndex: 1,
+      type: 'category',
+      data: Object.keys(builderJson.components),
+      axisLabel: {
+        interval: 0,
+        rotate: 30
+      },
+      splitLine: {
+        show: false
+      },
+      name:'type'
+    }
+  ],
+  series: [
+    {
+      type: 'bar',
+      stack: 'chart',
+      z: 3,
+      label: {
+        position: 'right',
+        show: true
+      },
+      data: Object.keys(builderJson.charts).map(function (key) {
+        return builderJson.charts[key];
+      })
+    },
+    {
+      type: 'bar',
+      stack: 'chart',
+      silent: true,
+      itemStyle: {
+        color: '#eee'
+      },
+      data: Object.keys(builderJson.charts).map(function (key) {
+        return builderJson.all - builderJson.charts[key];
+      })
+    },
+    {
+      type: 'bar',
+      stack: 'component',
+      xAxisIndex: 1,
+      yAxisIndex: 1,
+      z: 3,
+      label: {
+        position: 'right',
+        show: true
+      },
+      data: Object.keys(builderJson.components).map(function (key) {
+        return builderJson.components[key];
+      })
+    },
+    {
+      type: 'bar',
+      stack: 'component',
+      silent: true,
+      xAxisIndex: 1,
+      yAxisIndex: 1,
+      itemStyle: {
+        color: '#eee'
+      },
+      data: Object.keys(builderJson.components).map(function (key) {
+        return builderJson.all - builderJson.components[key];
+      })
+    },
+    {
+      type: 'pie',
+      radius: [0, '30%'],
+      center: ['75%', '25%'],
+      data: Object.keys(downloadJson).map(function (key) {
+        return {
+          name: key.replace('.js', ''),
+          value: downloadJson[key]
+        };
+      })
+    },
+    {
+      type: 'pie',
+      radius: [0, '30%'],
+      center: ['75%', '75%'],
+      data: Object.keys(themeJson).map(function (key) {
+        return {
+          name: key.replace('.js', ''),
+          value: themeJson[key]
+        };
+      })
+    }
+  ]
+};
+
+ //主干结束
+  
+if(option){
+myChart.setOption(option);
+}
+    </script>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>#chart-panel {
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: 0;
+                bottom: 0;
+            }
+</style>
+
+
+<script src="https://lib.baomitu.com/echarts/5.2.1/echarts.min.js"></script>  <!-- 这里可能要换一下版本，如4.2.1 -->
+
+
+<script src=""></script>
+
+
+
+<script src="https://cdn.staticfile.org/jquery/3.3.1/jquery.min.js"></script>
+
+</head>
+<body>
+<div id="chart-panel" style="margin-top:30px"></div>
+<!-- <a>此处去除注释后可以添加标题</a> -->
+  
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('chart-panel'));
+ //主干开始
+// prettier-ignore
+const hours = [
+   '1','2','3','4','5','6','7','8','9','10'
+];
+// prettier-ignore
+const days = [
+    '0-12','12-24','24-36','36-48','48-60','60-72','72-84','84-96','96-108','108-120'
+];
+// prettier-ignore
+const data = [[0,0,5890],[0,1,15],[0,2,9],[0,3,1],[0,4,2],[1,0,6464],[1,1,80],[1,2,37],[1,3,10],[1,4,5],[1,5,3],[1,7,1],[2,0,214],[2,1,6],[3,0,44],[3,1,1],[3,9,1],[4,0,10],[5,0,2],[7,0,1],[9,0,1]]
+    .map(function (item) {
+    return [item[0], item[1], item[2] || '-'];
+});
+option = {
+  tooltip: {
+    position: 'top'
+  },
+  grid: {
+    height: '50%',
+    top: '10%'
+  },
+  xAxis: {
+    type: 'category',
+    data: hours,
+    splitArea: {
+      show: true
+    },
+    name:"Beneficial Owner"
+  },
+  
+  yAxis: {
+    type: 'category',
+    data: days,
+    splitArea: {
+      show: true
+    },
+    name:"Company Contacts"
+  },
+  visualMap: {
+    min: 0,
+    max: 6000,
+    calculable: true,
+    orient: 'horizontal',
+    left: 'center',
+    bottom: '15%'
+  },
+  series: [
+    {
+      name: 'Punch Card',
+      type: 'heatmap',
+      data: data,
+      label: {
+        show: true
+      },
+      emphasis: {
+        itemStyle: {
+          shadowBlur: 10,
+          shadowColor: 'rgba(0, 0, 0, 0.5)'
+        }
+      }
+    }
+  ]
+};
+
+ //主干结束
+  
+if(option){
+myChart.setOption(option);
+}
+    </script>
+</body>
+</html>
